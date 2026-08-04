@@ -9,7 +9,7 @@ export const options = {
   // 使用 stages (阶段) 模拟更真实的流量波动：
   stages: [
     { duration: '10s', target: 50 },  // 阶段一：用 10 秒时间，将单机并发逐渐拉升到 50（总并发 1000）
-    { duration: '40s', target: 50 },  // 阶段二：保持单机 50 并发，持续火力压测 40 秒
+    { duration: '100s', target: 50 },  // 阶段二：保持单机 50 并发，持续火力压测 40 秒
     { duration: '10s', target: 0 },   // 阶段三：最后 10 秒逐渐释放连接，降回 0
   ],
   
@@ -23,7 +23,7 @@ export const options = {
 // 2. 发包核心逻辑 (每 1 个并发用户都会循环执行这里的代码)
 export default function () {
   // ⚠️ 【极其重要】把这里的 URL 换成你自己服务器的真实接口地址！
-  const targetUrl = 'testuberlabs.com';
+  const targetUrl = 'https://testuberlabs.com/';
 
   // 配置请求头和超时时间
   const params = {
