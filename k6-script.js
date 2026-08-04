@@ -9,8 +9,8 @@ export const options = {
   // 使用 stages (阶段) 模拟更真实的流量波动：
   
    
-  vus: 100,         // 单机并发 100 
-  duration: '60s',  // 压测 60 秒
+  vus: 30,         // 单机并发 100 
+  duration: '120s',  // 压测 60 秒
   
 };
 
