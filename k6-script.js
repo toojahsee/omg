@@ -7,16 +7,19 @@ export const options = {
   // 因为你在 YAML 里配置了 20 台机器，所以 最终总并发 = 这里的 target x 20
   
   // 使用 stages (阶段) 模拟更真实的流量波动：
- 
-  如果你不想分阶段，只想简单粗暴地保持固定并发，可以删掉上面的 stages，换成下面这两行：
+  
+  
+  
+  
   vus: 100,         // 单机并发 100 
   duration: '60s',  // 压测 60 秒
+  
 };
 
 // 2. 发包核心逻辑 (每 1 个并发用户都会循环执行这里的代码)
 export default function () {
   // ⚠️ 【极其重要】把这里的 URL 换成你自己服务器的真实接口地址！
-  const targetUrl = 'https://testuberlabs.com/';
+  const targetUrl = 'https://你的目标网站.com/api/test';
 
   // 配置请求头和超时时间
   const params = {
