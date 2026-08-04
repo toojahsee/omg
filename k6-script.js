@@ -8,9 +8,9 @@ export const options = {
   
   // 使用 stages (阶段) 模拟更真实的流量波动：
   stages: [
-    { duration: '10s', target: 50 },  // 阶段一：用 10 秒时间，将单机并发逐渐拉升到 50（总并发 1000）
+    { duration: '10s', target: 200 },  // 阶段一：用 10 秒时间，将单机并发逐渐拉升到 50（总并发 1000）
     { duration: '40s', target: 100 },  // 阶段二：保持单机 50 并发，持续火力压测 40 秒
-    { duration: '10s', target: 0 },   // 阶段三：最后 10 秒逐渐释放连接，降回 0
+    { duration: '10s', target: 100},   // 阶段三：最后 10 秒逐渐释放连接，降回 0
   ],
   
   /* 
