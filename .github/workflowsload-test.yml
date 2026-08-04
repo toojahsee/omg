@@ -1,0 +1,23 @@
+name: 分布式高并发压测 (20节点)
+
+# 允许在 GitHub 网页的 Actions 界面通过按钮手动触发
+on:
+  workflow_dispatch: 
+
+jobs:
+  stress_test:
+    runs-on: ubuntu-latest
+    strategy:
+      # matrix 是实现并发的核心：这里定义了一个包含 20 个数字的数组
+      # GitHub Actions 会自动为这 20 个元素分别启动一台独立的 Ubuntu 虚拟机
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    
+    steps:
+      - name: 拉取当前仓库的代码
+        uses: actions/checkout@v3
+
+      - name: 使用自带的 Docker 运行 k6 发包
+        # 读取同级目录下的 k6-script.js 文件进行压测
+        run: |
+          docker run --rm -i grafana/k6 run - < k6-script.js
