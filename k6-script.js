@@ -23,7 +23,7 @@ export const options = {
 // 2. 发包核心逻辑 (每 1 个并发用户都会循环执行这里的代码)
 export default function () {
   // ⚠️ 【极其重要】把这里的 URL 换成你自己服务器的真实接口地址！
-  const targetUrl = 'https://你的目标网站.com/api/test';
+  const targetUrl = 'https://testuberlabs.com/';
 
   // 配置请求头和超时时间
   const params = {
